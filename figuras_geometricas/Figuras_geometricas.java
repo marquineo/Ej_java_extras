@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Figuras_geometricas {
 
-    private static boolean relleno;
 
     static int trianguloA(double base, double altura) {
         return (int) ((base * altura) / 2);
@@ -46,9 +45,11 @@ public class Figuras_geometricas {
 
     }
 
-    static String relleno(int num) {
+    static String rndchar(int num) {
+        String relleno = "%";
         Random rnd = new Random();
-        num = rnd.nextInt(6);
+        num = rnd.nextInt(5);
+        num++;
         switch (num) {
             case 1:
                 return "*";
@@ -65,12 +66,13 @@ public class Figuras_geometricas {
             case 5:
                 return "€";
         }
-        return "";
+        return null;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int menu, Base, base = 0, altura = 0;
+        String relleno;
         do {
             System.out.println("Elije una de las figuras :");
             System.out.println("********************");
@@ -91,6 +93,7 @@ public class Figuras_geometricas {
                 System.out.println("Dame la altura : ");
                 altura = sc.nextInt();
             }
+            relleno = rndchar(1);
             switch (menu) {
                 case 1:
                     System.out.println("Área -> " + trianguloA(base, altura));
@@ -102,7 +105,7 @@ public class Figuras_geometricas {
                             System.out.print(" ");
                         }
                         for (int j = 1; j <= rell; j++) {
-                            System.out.print("*");
+                            System.out.print(relleno);
                         }
                         System.out.println("");
                     }
@@ -112,7 +115,7 @@ public class Figuras_geometricas {
                     System.out.println("Perímetro -> " + rectanguloP(base, altura));
                     for (int i = 1; i <= altura; i++) {
                         for (int j = 1; j <= base; j++) {
-                            System.out.print("*");
+                            System.out.print(relleno);
                         }
                         System.out.println("");
                     }
@@ -127,7 +130,7 @@ public class Figuras_geometricas {
                             System.out.print(" ");
                         }
                         for (int j = 1; j <= base; j++) {
-                            System.out.print("*");
+                            System.out.print(relleno);
                         }
                         System.out.println("");
                         base = base + 2;
@@ -141,7 +144,7 @@ public class Figuras_geometricas {
                             System.out.print(" ");
                         }
                         for (int j = 1; j <= base; j++) {
-                            System.out.print("*");
+                            System.out.print(relleno);
                         }
                         System.out.println("");
                         base = base + 2;
@@ -152,7 +155,7 @@ public class Figuras_geometricas {
                             System.out.print(" ");
                         }
                         for (int j = 1; j <= base; j++) {
-                            System.out.print("*");
+                            System.out.print(relleno);
                         }
                         System.out.println("");
                         base = base - 2;
